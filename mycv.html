@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranjith Kumar - Cloud & DevOps Specialist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 11pt;
+            color: #333;
+            line-height: 1.4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            position: relative;
+        }
+
+        /* Resume Container */
+        .resume-container {
+            width: 1100px;
+            min-height: 700px;
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin: 20px;
+        }
+
+        /* HEADER & Contact Info */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a4e9b;
+        }
+        .contact-info {
+            text-align: right;
+            font-size: 10pt;
+        }
+        .contact-info a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+        }
+        .contact-info a:hover {
+            color: #007bff;
+        }
+
+        /* Two-Column Layout for Expertise */
+        .expertise-section {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .expertise-box {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 8px 15px;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-size: 11pt;
+            letter-spacing: 0.5px;
+            text-align: center;
+            flex-grow: 1;
+        }
+        .expertise-box.ai-focus {
+            background-color: #ffeeba;
+            color: #856404;
+        }
+
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+
+        /* Left Column Content */
+        .left-col h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a4e9b;
+            margin-top: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+            text-transform: uppercase;
+        }
+        .left-col ul {
+            list-style-type: none;
+            padding: 0;
+            font-size: 10.5pt;
+        }
+        .left-col li {
+            margin-bottom: 4px;
+        }
+        .left-col strong {
+            font-weight: 700;
+        }
+        .left-col .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 4px solid #1a4e9b;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #eee; /* Light gray background while loading */
+        }
+        .profile-summary {
+            font-size: 10.5pt;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+        .profile-summary p {
+            line-height: 1.5;
+        }
+        .profile-summary .experience-metric {
+            display: block;
+            margin-top: 5px;
+            font-size: 12pt;
+            font-weight: 700;
+            color: #1a4e9b;
+        }
+
+        /* Right Column (Experience & Achievements) */
+        .achievements-header {
+            background-color: #1a4e9b;
+            color: white;
+            padding: 10px 15px;
+            font-size: 15px;
+            font-weight: 700;
+            border-radius: 4px;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .job-title {
+            font-size: 12pt;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 2px;
+        }
+        .job-meta {
+            font-size: 10pt;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .job-details {
+            list-style: disc;
+            margin-left: 20px;
+            padding: 0;
+        }
+        .job-details li {
+            margin-bottom: 6px;
+            font-size: 10.5pt;
+        }
+        .job-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+        .job-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* --- AI WIDGET STYLES --- */
+        .ai-widget-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1a4e9b, #007bff);
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(26, 78, 155, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(26, 78, 155, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(26, 78, 155, 0); }
+        }
+        .ai-widget-btn:hover { transform: scale(1.1); animation: none; }
+        .ai-widget-btn i { color: white; font-size: 24px; }
+
+        .ai-panel {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 360px;
+            height: 550px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform: translateY(20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+            font-family: 'Roboto', sans-serif;
+        }
+        .ai-panel.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        .ai-header {
+            background: #1a4e9b;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+        }
+        .ai-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #ddd;
+        }
+        .ai-tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            color: #666;
+            transition: background 0.2s;
+        }
+        .ai-tab:hover { background: #eee; }
+        .ai-tab.active {
+            background: white;
+            color: #1a4e9b;
+            border-bottom: 2px solid #1a4e9b;
+            font-weight: 700;
+        }
+        .ai-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        /* Scrollbar styling */
+        .ai-content::-webkit-scrollbar { width: 6px; }
+        .ai-content::-webkit-scrollbar-thumb { background-color: #ccc; border-radius: 3px; }
+
+        .message {
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 13.5px;
+            max-width: 85%;
+            line-height: 1.5;
+            position: relative;
+            word-wrap: break-word;
+        }
+        .message.user {
+            background: #e3f2fd;
+            color: #0d47a1;
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+        .message.bot {
+            background: #f1f3f4;
+            color: #333;
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+        }
+        .ai-input-area {
+            padding: 12px;
+            border-top: 1px solid #eee;
+            background: white;
+            display: flex;
+            gap: 8px;
+        }
+        .ai-input-area input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+            font-size: 13px;
+            transition: border-color 0.2s;
+        }
+        .ai-input-area input:focus { border-color: #1a4e9b; }
+        .ai-input-area button {
+            background: #1a4e9b;
+            color: white;
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ai-input-area button:hover { background: #0d3875; }
+        .ai-input-area button:disabled { background: #ccc; cursor: not-allowed; }
+
+        /* Cover Letter Specifics */
+        .cl-container { display: none; flex-direction: column; height: 100%; }
+        .cl-textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            resize: none;
+            font-family: inherit;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+        .cl-btn {
+            width: 100%;
+            padding: 10px;
+            background: #1a4e9b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .cl-btn:hover { background: #0d3875; }
+        .cl-output {
+            margin-top: 15px;
+            font-size: 12px;
+            white-space: pre-wrap;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            flex: 1;
+            overflow-y: auto;
+        }
+        .typing-indicator {
+            font-style: italic;
+            color: #888;
+            font-size: 12px;
+            margin-left: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="resume-container" id="resumeContent">
+    <div class="header">
+        <h1>A Ranjith Kumar</h1>
+        <div class="contact-info">
+            <a href="mailto:ranjithkumar.khan@gmail.com"><i class="fa-solid fa-envelope"></i> ranjithkumar.khan@gmail.com</a>
+            <a href="tel:8870208720"><i class="fa-solid fa-phone"></i> +91 8870208720</a>
+            <a href="https://www.linkedin.com/in/ranjith-kumar-cloudengineer/"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/ranjith-kumar-cloudengineer/</a>
+        </div>
+    </div>
+
+    <!-- Expertise Row -->
+    <div class="expertise-section">
+        <div class="expertise-box">
+            Areas of Expertise: Cloud Infrastructure, IaaC, CI/CD, DevOps Automation, Multi-Cloud Migration
+        </div>
+        <div class="expertise-box ai-focus">
+            AI Focus: Generative AI, Machine Learning Operations (MLOps), AI/ML Solutions
+        </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="content-grid">
+        <div class="left-col">
+            
+            <!-- 
+                 NOTE: Ensure the file "My_photo_new.png" is in the same folder as this HTML file. 
+                 The onerror attribute shows a placeholder if your specific image isn't found.
+            -->
+            <img src="My_photo_new.png" onerror="this.src='https://www.w3schools.com/howto/img_avatar.png'" alt="Profile Photo" class="profile-img">
+            
+            <span class="experience-metric">Experience: 10+ Years</span>
+
+            <div class="profile-summary">
+                <p>Results-driven Cloud & DevOps Engineer specializing in robust infrastructure automation across multi-cloud environments (GCP, Azure, AWS). With a GCP Generative AI certification, actively seeking to apply engineering foundation to MLOps and innovative AI solutions.</p>
+            </div>
+
+            <!-- Technical Skills -->
+            <h3>Technical Skills</h3>
+            <ul>
+                <li><strong>Cloud Platforms:</strong> GCP (Expert), Azure (Expert), AWS (Proficient)</li>
+                <li><strong>IaaC/Config Mgmt:</strong> Terraform, Chef, Ansible, ARM Templates</li>
+                <li><strong>CI/CD & Automation:</strong> Jenkins, GitHub Actions, Shell Scripting, Python</li>
+                <li><strong>Monitoring & Tools:</strong> ServiceNow, AWS SSM, LVM, Git, Docker</li>
+                <li><strong>Databases:</strong> Cloud SQL, BigQuery (Familiarity)</li>
+            </ul>
+
+            <!-- Certifications -->
+            <h3>Certifications</h3>
+            <ul>
+                <li><strong>GCP Generative AI Leader</strong> (Google, 2025)</li>
+                <li>GCP Generative AI Fundamentals (Google, 2024)</li>
+                <li>Microsoft Certified Azure Administrator Associate (2022)</li>
+                <li>AWS Certified Cloud Practitioner (2022)</li>
+                <li>Microsoft Certified Azure Network Engineer Associate (2022)</li>
+            </ul>
+
+            <!-- Education -->
+            <h3>Education</h3>
+            <ul>
+                <li><strong>B.Tech Information Technology</strong> (2016)</li>
+                <li>Sri Manakula Vinayagar Engineering College, Puducherry</li>
+                <li><strong>Diploma in Information Technology</strong> (2012)</li>
+                <li>Motilal Nehru Government Polytechnic, Puducherry</li>
+            </ul>
+
+        </div>
+
+        <div class="right-col">
+            <div class="achievements-header">
+                Experience & Accomplishments of Key Projects
+            </div>
+
+            <!-- Job 1: HCLTech (Nokia) - GCP FOCUS -->
+            <div class="job-item">
+                <div class="job-title">Infrastructure Specialist (GCP Migration Lead)</div>
+                <div class="job-meta">
+                    <span>HCLTech (Client: Nokia)</span>
+                    <span>Aug 2024 - Present</span>
+                </div>
+                <ul class="job-details">
+                    <li><strong>Engineered critical GCP infrastructure</strong> across 20+ Project IDs using <strong>Terraform IaaC</strong>, managing 40+ Compute Engine instances for core enterprise services.</li>
+                    <li>Developed and optimized robust <strong>CI/CD pipelines</strong> using <strong>Jenkins and GitHub Actions</strong>, automating deployment and significantly reducing release cycle time.</li>
+                    <li>Collaborated with Security/DB teams to <strong>verify policy compliance and guardrails</strong> across deployed GCP environments.</li>
+                    <li>Managed platform incidents, service tasks, and migration requests via <strong>ServiceNow</strong> to guarantee swift resolution and operational handovers.</li>
+                </ul>
+            </div>
+
+            <!-- Job 2: HCLTech (Toyota) - Chef/AWS Focus -->
+            <div class="job-item">
+                <div class="job-title">Infrastructure Specialist (Chef Automation)</div>
+                <div class="job-meta">
+                    <span>HCLTech (Client: Toyota Financial Services)</span>
+                    <span>Apr 2023 - July 2024</span>
+                </div>
+                <ul class="job-details">
+                    <li>Executed automation strategies using <strong>Chef</strong> to manage configuration and package deployment across a large-scale hybrid environment (<strong>2000+ AWS EC2 and 1500+ on-prem servers</strong>).</li>
+                    <li>Implemented **AWS Systems Manager (SSM)** for automated kernel patching on AWS Linux servers, improving efficiency and reducing manual intervention.</li>
+                    <li>Performed Linux system administration and managed the decommissioning of on-premises servers following successful AWS migration.</li>
+                </ul>
+            </div>
+
+            <!-- Job 3: Msys Technologies - Multi-Cloud Support -->
+            <div class="job-item">
+                <div class="job-title">Cloud Support Engineer</div>
+                <div class="job-meta">
+                    <span>Msys Technologies</span>
+                    <span>Dec 2017 - Apr 2023</span>
+                </div>
+                <ul class="job-details">
+                    <li>Automated <strong>Azure & AWS infrastructure</strong> deployment using <strong>Terraform modules</strong>, achieving a **30% reduction** in setup time and promoting code reuse.</li>
+                    <li>Deployed and managed Azure Virtual Machines and implemented Azure Backup/Site Recovery for disaster recovery planning.</li>
+                    <li>Designed and implemented Azure Virtual Networks (VNets), subnets, and configured storage security policies.</li>
+                </ul>
+            </div>
+
+            <!-- Job 4: Earlier Experience (Condensed) -->
+            <div class="job-item" style="border-bottom: none;">
+                <div class="job-title">Previous Experience Summary (2015-2017)</div>
+                <div class="job-meta">
+                    <span>Consultant & Customer Relationship Roles</span>
+                    <span>Oct 2015 - Oct 2017</span>
+                </div>
+                <ul class="job-details">
+                    <li>Provided IT troubleshooting and support services across various operating systems and application software for large client bases.</li>
+                    <li>Managed customer relationships, documented cases, and escalated complex network issues.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================= AI WIDGET START ================= -->
+<button class="ai-widget-btn" onclick="toggleAI()" title="Open AI Assistant">
+    <i class="fa-solid fa-wand-magic-sparkles"></i>
+</button>
+
+<div class="ai-panel" id="aiPanel">
+    <div class="ai-header">
+        <span><i class="fa-solid fa-robot"></i> Ranjith's AI Assistant</span>
+        <i class="fa-solid fa-xmark" style="cursor:pointer" onclick="toggleAI()"></i>
+    </div>
+    
+    <div class="ai-tabs">
+        <div class="ai-tab active" onclick="switchTab('chat', this)">Chat</div>
+        <div class="ai-tab" onclick="switchTab('cover', this)">Cover Letter</div>
+    </div>
+    
+    <!-- Tab 1: Chat -->
+    <div id="tab-chat" class="ai-content" style="display: flex;">
+        <div class="message bot">
+            Hi! I'm Ranjith's AI agent. ✨<br><br>
+            I can answer questions about his <strong>GCP, Terraform, and DevOps experience</strong> based on this resume. Try asking: <br>
+            <em>"What is his experience with GCP migration?"</em>
+        </div>
+    </div>
+    <div id="input-chat" class="ai-input-area">
+        <input type="text" id="userMsg" placeholder="Ask about Ranjith's skills..." onkeypress="handleEnter(event)">
+        <button onclick="sendMessage()" id="sendBtn"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+
+    <!-- Tab 2: Cover Letter -->
+    <div id="tab-cover" class="ai-content" style="display: none;">
+        <div style="padding: 0 5px;">
+            <p style="font-size:13px; color:#555; margin-bottom:10px;">
+                <strong>Paste a Job Description below</strong>, and I will generate a tailored cover letter highlighting Ranjith's matching skills.
+            </p>
+            <textarea id="jdInput" class="cl-textarea" placeholder="Paste Job Description here (e.g. 'Looking for a Senior Cloud Engineer with GCP and Terraform experience...')"></textarea>
+            <button class="cl-btn" onclick="generateCoverLetter()" id="clBtn">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Cover Letter
+            </button>
+            <div class="typing-indicator" id="clLoader">✨ Generating... please wait...</div>
+            <div id="clOutput" class="cl-output" style="display:none;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- GEMINI API SETUP ---
+    const apiKey = ""; // The execution environment provides the key at runtime.
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+    // --- STATE & UTILS ---
+    let resumeText = "";
+
+    window.onload = function() {
+        // Extract resume text for context
+        const resumeEl = document.getElementById('resumeContent');
+        resumeText = resumeEl.innerText.replace(/\s+/g, ' ').trim();
+    };
+
+    function toggleAI() {
+        const panel = document.getElementById('aiPanel');
+        panel.classList.toggle('active');
+        if(panel.classList.contains('active')) {
+            document.getElementById('userMsg').focus();
+        }
+    }
+
+    function switchTab(tabName, tabElement) {
+        // Hide all contents
+        document.getElementById('tab-chat').style.display = 'none';
+        document.getElementById('input-chat').style.display = 'none';
+        document.getElementById('tab-cover').style.display = 'none';
+        
+        // Reset tabs
+        document.querySelectorAll('.ai-tab').forEach(t => t.classList.remove('active'));
+        
+        // Activate selected
+        if(tabElement) tabElement.classList.add('active');
+        
+        if(tabName === 'chat') {
+            document.getElementById('tab-chat').style.display = 'flex';
+            document.getElementById('input-chat').style.display = 'flex';
+        } else {
+            document.getElementById('tab-cover').style.display = 'flex';
+        }
+    }
+
+    // --- CHAT LOGIC ---
+    function handleEnter(e) {
+        if(e.key === 'Enter') sendMessage();
+    }
+
+    async function sendMessage() {
+        const input = document.getElementById('userMsg');
+        const text = input.value.trim();
+        if(!text) return;
+
+        // Add User Message
+        addMessage(text, 'user');
+        input.value = '';
+        input.disabled = true;
+        document.getElementById('sendBtn').disabled = true;
+
+        // Add Loading Indicator
+        const loadingId = addMessage('Thinking... ✨', 'bot');
+
+        try {
+            const prompt = `
+                You are a helpful AI assistant representing Ranjith Kumar. 
+                Answer the user's question primarily using the following resume content.
+                If the answer isn't in the resume, you can infer based on his roles (Cloud/DevOps Engineer), but mention that it's inferred.
+                Keep answers professional, concise, and enthusiastic.
+                
+                RESUME CONTENT:
+                ${resumeText}
+
+                USER QUESTION:
+                ${text}
+            `;
+
+            const response = await callGemini(prompt);
+            
+            // Update loading message with actual response
+            const loadingMsg = document.getElementById(loadingId);
+            loadingMsg.innerHTML = formatResponse(response);
+            
+        } catch (error) {
+            document.getElementById(loadingId).innerText = "Sorry, I encountered an error. Please try again.";
+            console.error(error);
+        } finally {
+            input.disabled = false;
+            document.getElementById('sendBtn').disabled = false;
+            input.focus();
+        }
+    }
+
+    function addMessage(text, sender) {
+        const container = document.getElementById('tab-chat');
+        const div = document.createElement('div');
+        div.className = `message ${sender}`;
+        div.id = 'msg-' + Date.now();
+        div.innerText = text; // Safe injection
+        container.appendChild(div);
+        container.scrollTop = container.scrollHeight;
+        return div.id;
+    }
+
+    // --- COVER LETTER LOGIC ---
+    async function generateCoverLetter() {
+        const jd = document.getElementById('jdInput').value.trim();
+        if(!jd) {
+            alert("Please paste a Job Description first!");
+            return;
+        }
+
+        const btn = document.getElementById('clBtn');
+        const loader = document.getElementById('clLoader');
+        const output = document.getElementById('clOutput');
+        
+        btn.disabled = true;
+        loader.style.display = 'block';
+        output.style.display = 'none';
+        output.innerHTML = '';
+
+        try {
+            const prompt = `
+                Write a professional, compelling cover letter for Ranjith Kumar.
+                
+                HIS RESUME:
+                ${resumeText}
+                
+                TARGET JOB DESCRIPTION:
+                ${jd}
+                
+                INSTRUCTIONS:
+                - Address the specific requirements in the JD using Ranjith's specific experience (GCP, Terraform, etc).
+                - Keep it concise (under 300 words).
+                - Use a professional tone.
+                - Do not include placeholders like "[Your Phone Number]" if the info is available in the resume.
+            `;
+
+            const response = await callGemini(prompt);
+            output.innerHTML = formatResponse(response);
+            output.style.display = 'block';
+            
+        } catch (error) {
+            alert("Error generating cover letter. Please try again.");
+            console.error(error);
+        } finally {
+            btn.disabled = false;
+            loader.style.display = 'none';
+        }
+    }
+
+    // --- API CALL ---
+    async function callGemini(promptText) {
+        const payload = {
+            contents: [{
+                parts: [{ text: promptText }]
+            }]
+        };
+
+        const res = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+        return data.candidates[0].content.parts[0].text;
+    }
+
+    function formatResponse(text) {
+        // Simple formatting: bolding and line breaks
+        return text
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
+            .replace(/\n/g, '<br>'); // Line breaks
+    }
+</script>
+
+</body>
+</html>
